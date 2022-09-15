@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/labstack/echo/v4"
 	"log"
 	"sweaty/Config"
@@ -16,17 +15,16 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(Config.AppConfig.Server.Port)
 	// init server
 	server := echo.New()
+
 	// routing
 	Route.Routing(server)
 
 	// middleware
-
 	//start server
-
-	server.Start(":" + Config.AppConfig.Server.Port)
+	server.Start(
+		Config.AppConfig.Server.Domain + ":" + Config.AppConfig.Server.Port)
 
 }
 
@@ -34,4 +32,3 @@ func main() {
 //func getAlbums(c *gin.Context) {
 //	c.IndentedJSON(http.StatusOK, albums)
 //}
-

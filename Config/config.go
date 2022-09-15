@@ -7,7 +7,8 @@ import (
 
 type Config struct {
 	Server struct {
-		Port string
+		Port   string
+		Domain string
 	}
 }
 
