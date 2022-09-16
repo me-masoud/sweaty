@@ -22,8 +22,6 @@ func AboutUs(c *gin.Context)  {
 func SubmitRequest(c *gin.Context)  {
 	email := c.PostForm("email")
 
-	DataBase()
-
 	c.HTML(http.StatusOK ,"success.html" ,gin.H{
 		"email" : email,
 	})

@@ -10,6 +10,12 @@ type Config struct {
 		Port   string
 		Domain string
 	}
+	Database struct{
+		User string
+		Password string
+		Port string
+		Host string
+	}
 }
 
 var AppConfig Config

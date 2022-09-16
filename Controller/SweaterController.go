@@ -9,5 +9,7 @@ func CreateSweeter(c echo.Context) error {
 	name := c.FormValue("name")
 	email := c.FormValue("email")
 	fmt.Println(name, email)
+
+
 	return nil
 }
