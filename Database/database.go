@@ -9,10 +9,10 @@ import (
 )
 
 type Db struct {
-	db *gorm.DB
+	Database *gorm.DB
 }
 
-func connectToDatabase() Db {
+func ConnectToDB() Db {
 	config := Config.AppConfig.Database
 	dsn := config.User + ":" + config.Password + "@tcp(" + config.Host + ":" + config.Port + ")/sweaty?charset=utf8&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.New(mysql.Config{
@@ -28,5 +28,5 @@ func connectToDatabase() Db {
 		log.Fatal("failed to connect database")
 	}
 
-	return Db{db: db}
+	return Db{Database: db}
 }

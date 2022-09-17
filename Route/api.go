@@ -4,6 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"net/http"
 	"sweaty/Controller"
+	"sweaty/Database/Migration"
 )
 
 func Routing(route *echo.Echo) error {
@@ -20,6 +21,17 @@ func Routing(route *echo.Echo) error {
 	/**
 	End Email Group
 	*/
+
+
+	/**
+	Start users Group
+	*/
+	migrationGroupRoute := route.Group("/migration")
+	migrationGroupRoute.GET("/run", Migration.Migration)
+	/**
+	End Migration Group
+	*/
+
 
 	/**
 	Start users Group
