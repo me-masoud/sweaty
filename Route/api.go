@@ -18,6 +18,7 @@ func Routing(route *echo.Echo) error {
 	*/
 	emailGroupRoute := route.Group("/email")
 	emailGroupRoute.POST("/new-sweater", Controller.CreateSweeter)
+	emailGroupRoute.GET("/all-sweaters" , Controller.AllSweater)
 	/**
 	End Email Group
 	*/
