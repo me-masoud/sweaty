@@ -9,20 +9,20 @@ import (
 
 func Routing(route *echo.Echo) error {
 
-	route.GET("/home", func(c echo.Context) error {
-		return c.String(http.StatusOK, "this is home")
-	})
+	route.GET("/", Controller.HomePage)
+	//route.GET("/", func(c echo.Context) error {
+	//	return c.String(http.StatusOK, "this is home")
+	//})
 
 	/**
 	Start Emails Group
 	*/
 	emailGroupRoute := route.Group("/email")
 	emailGroupRoute.POST("/new-sweater", Controller.CreateSweeter)
-	emailGroupRoute.GET("/all-sweaters" , Controller.AllSweater)
+	emailGroupRoute.GET("/all-sweaters", Controller.AllSweater)
 	/**
 	End Email Group
 	*/
-
 
 	/**
 	Start users Group
@@ -32,7 +32,6 @@ func Routing(route *echo.Echo) error {
 	/**
 	End Migration Group
 	*/
-
 
 	/**
 	Start users Group
