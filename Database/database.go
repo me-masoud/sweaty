@@ -16,6 +16,7 @@ func ConnectToDB() Db {
 	config := Config.AppConfig.Database
 	dsn := config.User + ":" + config.Password + "@tcp(" + config.Host + ":" + config.Port + ")/sweaty?charset=utf8&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.New(mysql.Config{
+
 		DSN:                       dsn,   // data source name
 		DefaultStringSize:         256,   // default size for string fields
 		DisableDatetimePrecision:  true,  // disable datetime precision, which not supported before MySQL 5.6
