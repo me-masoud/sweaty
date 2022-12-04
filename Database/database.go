@@ -1,11 +1,10 @@
 package Database
 
 import (
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
 	"sweaty/Config"
-
-	"gorm.io/driver/mysql"
 )
 
 type Db struct {

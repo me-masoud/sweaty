@@ -12,17 +12,15 @@ import (
 func CreateSweeter(c echo.Context) error {
 	name := c.FormValue("name")
 	email := c.FormValue("email")
-	fmt.Println(name, email)
 
 	Db := Database.ConnectToDB().Database
 
 	err := Db.Create(&Sweater.Sweater{Email: email, Name: name})
 
 	if err != nil {
-		//log.Fatal(err)
 		fmt.Println(err)
 	}
-	return c.String(http.StatusOK, "great")
+	return c.String(http.StatusOK, "user added to database ")
 }
 
 func AllSweater(c echo.Context) error {
